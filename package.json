@@ -1,11 +1,12 @@
 {
-  "name": "flow-time",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Ria N. Carmin <akimalunar@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "develop:cms": "cd ./sanity && npx sanity start",
-    "deploy:cms": "cd ./sanity && npx sanity deploy"
-  }
+    "name": "flow-time",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Ria N. Carmin <akimalunar@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "develop:cms": "cd ./sanity && npx sanity start",
+        "deploy:cms": "cd ./sanity && npx sanity deploy",
+        "develop:react": "cd ./react && webpack-dev-server --env.env=dev"
+    }
 }
