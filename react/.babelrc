@@ -3,5 +3,10 @@
     "env",
     "react",
     "stage-1"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-react-jsx-self",
+    "transform-react-jsx-source"
   ]
 }

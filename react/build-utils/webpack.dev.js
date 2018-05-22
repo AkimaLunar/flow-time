@@ -1,25 +1,17 @@
+const commonPaths = require('./common-paths')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
 const port = process.env.PORT || 3000
 
-module.exports = {
+const config = {
   mode: 'development',
-
-  entry: './src/index.js',
   output: {
-    filename: 'bundle.[hash].js'
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[chunkhash].js',
   },
-
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
-        test: /\.css/,
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader',
@@ -37,10 +29,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      favicon: 'public/favicon.ico'
-    })
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   devtool: 'inline-source-map',
@@ -48,6 +37,9 @@ module.exports = {
     host: 'localhost',
     port: port,
     historyApiFallback: true,
-    open: true
+    open: true,
+    hot: true
   },
 }
+
+module.exports = config
