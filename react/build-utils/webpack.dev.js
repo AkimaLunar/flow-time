@@ -8,26 +8,6 @@ const config = {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[chunkhash].js',
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              camelCase: true,
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],

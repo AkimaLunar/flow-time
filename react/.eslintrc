@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "emotion/syntax-preference": [
+      2,
+      "string"
+    ]
+  },
+  "plugins": [
+    "emotion",
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ]
+}

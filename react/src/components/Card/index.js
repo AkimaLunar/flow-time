@@ -1,8 +1,6 @@
 import React from 'react'
 import Portal from '../Portal'
 
-import style from './style.css'
-
 class Card extends React.PureComponent {
   cardId = null
   state = { counter: 15, showWindowPortal: false }
@@ -43,7 +41,7 @@ class Card extends React.PureComponent {
 
   render() {
     return (
-      <section className={style.card}>
+      <section>
         <p>{this.state.counter}</p>
         <button onClick={this.toggleTimer}>
           {this.state.active ? 'Pause' : 'Start'}
@@ -52,9 +50,9 @@ class Card extends React.PureComponent {
 
         {this.state.showWindowPortal && (
           <Portal>
-            <div className={style.timer}>
+            <div>
               <p>{this.state.counter}</p>
-              <div className={style.buttongroup}>
+              <div>
                 <button onClick={() => this.toggleTimer()}>
                   {this.state.active ? 'Pause' : 'Start'}
                 </button>
