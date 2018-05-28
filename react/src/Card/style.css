@@ -1,0 +1,27 @@
+.card {
+  border: 1px solid grey;
+}
+
+.timer {
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.timer p {
+  text-align: center;
+  font-size: 4rem;
+  align-self: center;
+}
+
+.timer .buttongroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.timer .buttongroup button {
+    width: 100%;
+}

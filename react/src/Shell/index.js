@@ -6,6 +6,10 @@ import Loadable from 'react-loadable';
 import Loading from '../Loading';
 import Footer from '../Footer';
 
+import './base.css';
+
+// TODO: Prefetch is NOT working.
+// Try https://github.com/GoogleChromeLabs/preload-webpack-plugin
 const Home = Loadable({
     loader: () =>
         import(/* webpackChunkName:'Home', webpackPrefetch: true */ '../Home'),
@@ -17,6 +21,8 @@ const About = Loadable({
         import(/* webpackChunkName:'About', webpackPrefetch: true */ '../About'),
     loading: Loading
 });
+
+About.preload()
 
 const Shell = () => (
     <Router>
