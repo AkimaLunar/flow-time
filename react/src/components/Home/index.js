@@ -1,2 +1,1 @@
-import styled from './styled'
-export default styled
+export { default } from './styled'

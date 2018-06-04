@@ -4,5 +4,5 @@ import Shell from './components/Shell'
 
 // import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Shell />, document.getElementById('root'));
+ReactDOM.render(<Shell />, document.getElementById('root'))
 // registerServiceWorker();

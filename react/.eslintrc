@@ -1,16 +1,19 @@
 {
-  "rules": {
-    "emotion/syntax-preference": [
-      2,
-      "string"
-    ]
-  },
-  "plugins": [
-    "emotion",
-    "react"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ]
+    "env": {
+        "browser": true,
+        "serviceworker": true
+    },
+    "rules": {
+        "emotion/syntax-preference": [2, "string"],
+        "semi": [2, "never"],
+        "no-console": "warn"
+    },
+    "plugins": ["emotion", "react"],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "modules": true
+        }
+    }
 }
