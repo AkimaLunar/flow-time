@@ -3,7 +3,7 @@ import { Layout, Colors } from 'Styles'
 
 export default {
     root: css`
-        background-color: ${Colors.grey.calc(92)};
+        background-color: ${Colors.grey.calc(94)};
     `,
     grid: Layout.grid
 }

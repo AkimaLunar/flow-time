@@ -1,6 +1,7 @@
 import { css } from 'react-emotion'
 import { Colors, Layout, Typography } from 'Styles'
 
+const bgColor = Colors.grey.calc(94)
 export default {
     root: css`
         display: flex;
@@ -23,7 +24,12 @@ export default {
     `,
     right: css`
         flex-grow: 1;
-        background-color: ${Colors.grey.calc(92)};
+        background: ${bgColor};
+        background: linear-gradient(
+            0,
+            ${bgColor} 20%,
+            ${Colors.grey.calc(100)} 100%
+        );
     `,
     title: css`
         ${Typography.title};
@@ -39,6 +45,6 @@ export default {
         bottom: 0;
         height: ${Layout.calcSpace(12)};
         width: ${Layout.calcSpace(12)};
-        color: ${Colors.grey.calc(92)};
+        color: ${bgColor};
     `
 }
