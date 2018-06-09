@@ -1,9 +1,11 @@
 {
     "env": {
         "browser": true,
-        "serviceworker": true
+        "serviceworker": true,
+        "node": true
     },
     "rules": {
+        "indent": ["error", 4],
         "emotion/syntax-preference": [2, "string"],
         "semi": [2, "never"],
         "no-console": "warn"

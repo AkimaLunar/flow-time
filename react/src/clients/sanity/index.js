@@ -11,7 +11,7 @@ const sanity = sanityClient({
 })
 
 const queries = {
-    getAppData: `*[_type in ["site", "timer"]]`,
+    getAppData: `*[_type in ["site", "home", "timer"]]`,
     getSite: `
         *[_type == "site"] {
             title,
@@ -37,14 +37,17 @@ export const parseAppData = data => {
     let appData = { site: {}, timers: [], other: [] }
     data.map(o => {
         switch (o._type) {
-            case 'site':
-                appData.site = o
-                break
-            case 'timer':
-                appData.timers = [...appData.timers, o]
-                break
-            default:
-                appData.other = [...appData.other, o]
+        case 'site':
+            appData.site = o
+            break
+        case 'home':
+            appData.home = o
+            break
+        case 'timer':
+            appData.timers = [...appData.timers, o]
+            break
+        default:
+            appData.other = [...appData.other, o]
         }
     })
     return appData

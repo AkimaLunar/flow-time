@@ -1,22 +1,53 @@
 import { injectGlobal } from 'emotion'
 import Colors from './Colors'
+import Layout from './Layout'
 import Typography from './Typography'
 
 injectGlobal`
   * {
     box-sizing: border-box;
-    font-family: ${Typography.font.base};
-    color: ${Colors.grey.dark};
+  }
+  
+  html,
+  body {
     background-color: ${Colors.grey.light};
+    margin: 0;
+    padding: 0;
+    color: ${Colors.grey.dark};
+    font-family: ${Typography.font.base};
+    font-size: ${Layout.rootFontSize};
   }
 
-  h1,
+  h1 {
+    font-family: ${Typography.font.title};
+    font-weight: ${Typography.fontWeight.regular};
+    margin: ${Layout.calcSpace(2)} 0;
+  }
+
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: ${Typography.font.title};
-    font-weight: ${Typography.fontWeight.regular};
+    font-family: ${Typography.font.base};
+    font-weight: ${Typography.fontWeight.bold};
+    margin: ${Layout.calcSpace(2)} 0;
   }
+
+  ul {
+    padding: 0;
+    margin: ${Layout.calcSpace(2)} 0;
+  }
+
+  a {
+    font-family: ${Typography.font.base};
+    font-weight: ${Typography.fontWeight.bold};
+    color: ${Colors.theme.primary};
+    text-decoration: none;
+  }
+
+  p {
+    margin: ${Layout.calcSpace(2)} 0;
+  }
+
 `

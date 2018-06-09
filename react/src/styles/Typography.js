@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import Colors from './Colors'
+import Layout from './Layout'
 
 export const font = {
     base: '"Lato", sans-serif',
@@ -10,11 +10,18 @@ export const fontWeight = {
     regular: 400,
     bold: 900
 }
+
 export default {
     font,
     fontWeight,
     title: css`
-        font-size: 2rem;
-        color: ${Colors.theme.primary};
+        font-family: ${font.title};
+        font-size: ${Layout.calcSpace(12)}};
+        margin: 0 0 ${Layout.calcSpace(4)} 0;
+    `,
+    subheading: css`
+        font-family: ${font.base};
+        font-size: ${Layout.calcSpace(3)}};
+        margin: 0 0 ${Layout.calcSpace(2)} 0;
     `
 }

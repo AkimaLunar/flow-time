@@ -1,30 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Card from '../Card'
+import Header from '../Header'
+import Timers from '../Timers'
 import { withApp } from '../Shell/context'
-import { paragraphCss, gridCss } from './styled'
 
-const Home = ({ className, timers, site }) => (
-    <section className={className}>
-        <h1>{site.title}</h1>
-        <p className={paragraphCss}>{site.description}</p>
-        <ul className={gridCss}>
-            {timers.map(timer => (
-                <Card
-                    key={timer._id}
-                    duration={timer.duration}
-                    name={timer.name}
-                />
-            ))}
-        </ul>
-    </section>
+const Home = ({ timers, home }) => (
+    <React.Fragment>
+        <Header home={home} />
+        <Timers timers={timers} />
+    </React.Fragment>
 )
 
 Home.propTypes = {
-    className: PropTypes.string,
     site: PropTypes.shape({
         title: PropTypes.title,
         description: PropTypes.description
+    }),
+    home: PropTypes.shape({
+        heading: PropTypes.title,
+        subheading: PropTypes.description
     }),
     timers: PropTypes.arrayOf(
         PropTypes.shape({

@@ -20,7 +20,8 @@ const grey = {
     dark: grey52,
     medium: grey84,
     light: grey96,
-    white: '#ffffff'
+    white: '#ffffff',
+    calc: value => `hsl(230, 20%, ${value}%)`
 }
 
 export const background = grey.light

@@ -6,6 +6,10 @@ const AppContext = React.createContext({
         title: '',
         description: ''
     },
+    home: {
+        heading: '',
+        subheading: ''
+    },
     timers: [],
     updateSite: () => {},
     updateTimers: () => {}
@@ -16,7 +20,7 @@ export const withApp = Component => {
     const WithApp = props => {
         return (
             <AppContext.Consumer>
-                {app => <Component {...props} {...app} />}
+                {app => <Component {...app} {...props} />}
             </AppContext.Consumer>
         )
     }

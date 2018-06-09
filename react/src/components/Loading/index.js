@@ -1,8 +1,21 @@
 import React from 'react'
-import ReactDelayRender from 'react-delay-render'
+import Delay from 'react-delay'
 
-const Loading = () => (
-  <p>Loading...</p>
-)
+const Loading = ({ error, retry }) => {
+    if (error) {
+        console.log(error)
+        return (
+            <div>
+                Error! <button onClick={retry}>Retry</button>
+            </div>
+        )
+    } else {
+        return (
+            <Delay wait={300}>
+                <div>Loading...</div>
+            </Delay>
+        )
+    }
+}
 
-export default ReactDelayRender({delay: 300})(Loading)
+export default Loading
