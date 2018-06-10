@@ -5,7 +5,7 @@ import styles from './styles'
 const Card = ({ children }) => <div className={styles.root}>{children}</div>
 
 Card.propTypes = {
-    children: PropTypes.array
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 }
 
 export default Card

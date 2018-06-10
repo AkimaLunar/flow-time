@@ -17,5 +17,8 @@
         "ecmaFeatures": {
             "modules": true
         }
+    },
+    "globals": {
+        "Raven": true
     }
 }
