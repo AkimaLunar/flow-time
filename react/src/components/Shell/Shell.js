@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 import Loadable from 'react-loadable'
-import { getAppData, parseAppData } from '../../clients/sanity'
+import { getAppData, parseAppData, getTimers } from '../../clients/sanity'
 import { Provider } from './context'
 
 import '../../styles/Base'
@@ -31,8 +31,14 @@ class Shell extends React.PureComponent {
     componentDidMount() {
         getAppData()
             .then(appData => {
-                const { site, home, timers } = parseAppData(appData)
-                this.setState({ site, home, timers })
+                const { site, home } = parseAppData(appData)
+                this.setState({ site, home })
+            })
+            .catch(err => console.log(err))
+
+        getTimers()
+            .then(timers => {
+                this.setState({ timers })
             })
             .catch(err => console.log(err))
     }

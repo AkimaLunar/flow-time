@@ -11,7 +11,7 @@ const withTimer = Component => {
 
         static getDerivedStateFromProps(nextProps) {
             if (nextProps.hasOwnProperty('duration')) {
-                return { counter: nextProps.duration }
+                return { counter: nextProps.duration * 60 }
             }
             return null
         }
@@ -38,7 +38,7 @@ const withTimer = Component => {
             clearInterval(this.cardId)
             this.setState({
                 active: false,
-                counter: this.props.duration,
+                counter: this.props.duration * 60,
                 showWindowPortal: false
             })
         }
@@ -51,22 +51,35 @@ const withTimer = Component => {
             }
         }
 
+        handleClose = () => this.stopTimer()
+
         render() {
+            const { className, name, background } = this.props
+            const minutes = Math.floor(this.state.counter / 60)
+            const _s = this.state.counter - minutes * 60
+            const seconds = _s < 10 ? `0${_s}` : _s
             return (
                 <React.Fragment>
                     <Component {...this.props}>
-                        <div
-                            className={styles.timer}
-                            onClick={this.toggleTimer}
-                        >
+                        <div className={className} onClick={this.toggleTimer}>
                             <Line className={styles.line} />
-                            <p>{this.state.counter}</p>
-                            <h3>{this.props.name}</h3>
+                            <p>
+                                {minutes}:{seconds}
+                            </p>
+                            <h3>{name}</h3>
                         </div>
                     </Component>
                     {this.state.showWindowPortal && (
-                        <Portal>
-                            <div className={styles.portal}>
+                        <Portal
+                            onClose={this.handleClose}
+                            name={`Timer: ${name}`}
+                        >
+                            <div
+                                className={styles.portal}
+                                style={{
+                                    backgroundImage: `url(${background}?)`
+                                }}
+                            >
                                 <div className={styles.buttonGroupCss}>
                                     <button onClick={() => this.toggleTimer()}>
                                         {this.state.active ? 'Pause' : 'Start'}
@@ -75,8 +88,10 @@ const withTimer = Component => {
                                         Close
                                     </button>
                                 </div>
-                                <p>{this.state.counter}</p>
-                                <h1>{this.props.name}</h1>
+                                <p>
+                                    {minutes}:{seconds}
+                                </p>
+                                <h3>{name}</h3>
                             </div>
                         </Portal>
                     )}
@@ -89,8 +104,10 @@ const withTimer = Component => {
         Component.name})`
 
     WithTimer.propTypes = {
+        className: PropTypes.string,
         duration: PropTypes.number,
-        name: PropTypes.string
+        name: PropTypes.string,
+        background: PropTypes.string
     }
 
     return WithTimer

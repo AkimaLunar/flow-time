@@ -12,9 +12,9 @@ export default {
         flex-grow: 1;
     `,
     center: css`
-        padding-right: ${Layout.calcSpace(4)};
-        padding-top: ${Layout.calcSpace(16)};
-        padding-bottom: ${Layout.calcSpace(16)};
+        padding-right: ${Layout.calcSpace(8)};
+        padding-top: ${Layout.calcSpace(14)};
+        padding-bottom: ${Layout.calcSpace(14)};
         width: ${Layout.maxWidth};
         position: relative;
         display: grid;
@@ -31,12 +31,19 @@ export default {
             ${Colors.grey.calc(100)} 100%
         );
     `,
+    circle: css`
+        display: inline-block;
+        margin: 1rem 0 0 1rem;
+    `,
     title: css`
         ${Typography.title};
+        margin-bottom: 0;
         color: ${Colors.theme.secondary};
+        text-align: left;
     `,
     description: css`
-        ${Typography.subheading};
+        ${Typography.paragraph};
+        margin-bottom: 0;
         color: ${Colors.grey.calc(72)};
     `,
     corner: css`

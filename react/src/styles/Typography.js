@@ -7,8 +7,8 @@ export const font = {
 }
 
 export const fontWeight = {
-    regular: 400,
-    bold: 900
+    regular: 300,
+    bold: 700
 }
 
 export default {
@@ -22,6 +22,17 @@ export default {
     subheading: css`
         font-family: ${font.base};
         font-size: ${Layout.calcSpace(3)}};
+        font-weight: ${fontWeight.bold};
         margin: 0 0 ${Layout.calcSpace(2)} 0;
+    `,
+    paragraph: css`
+        font-size: ${Layout.calcSpace(3)}};
+        font-weight: ${fontWeight.regular};
+        margin: 0 0 ${Layout.calcSpace(2)} 0;
+    `,
+    h3: css`
+        font-size: ${Layout.calcSpace(2)};
+        text-transform: uppercase;
+        letter-spacing: 2px;
     `
 }

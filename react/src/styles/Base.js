@@ -47,7 +47,16 @@ injectGlobal`
   }
 
   p {
-    margin: ${Layout.calcSpace(2)} 0;
+    ${Typography.paragraph}
+  }
+
+  hr {
+    border-width: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid ${Colors.grey.light};
+    padding: 0;
   }
 
 `

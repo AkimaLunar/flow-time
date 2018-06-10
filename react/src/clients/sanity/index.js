@@ -11,7 +11,7 @@ const sanity = sanityClient({
 })
 
 const queries = {
-    getAppData: `*[_type in ["site", "home", "timer"]]`,
+    getAppData: `*[_type in ["site", "home"]]`,
     getSite: `
         *[_type == "site"] {
             title,
@@ -20,9 +20,10 @@ const queries = {
     `,
     getTimers: `
         *[_type == "timer"] {
+            _id,
             name,
             duration,
-            background,
+            "backgroundUrl": background.asset->url,
             imageCreditName,
             imageCreditUrl
         }
@@ -34,7 +35,7 @@ export const getTimers = () => sanity.fetch(queries.getTimers)
 export const getAppData = () => sanity.fetch(queries.getAppData)
 
 export const parseAppData = data => {
-    let appData = { site: {}, timers: [], other: [] }
+    let appData = { site: {}, other: [] }
     data.map(o => {
         switch (o._type) {
         case 'site':

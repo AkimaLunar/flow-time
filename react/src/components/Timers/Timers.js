@@ -5,8 +5,12 @@ import List from '../List'
 import Card from '../Card'
 import withTimer from '../Card/withTimer'
 import styles from './styles'
+import styled from 'react-emotion'
 
-const Timer = withTimer(Card)
+const Timer = styled(withTimer(Card))`
+    ${styles.timer};
+    background-image: url(${props => props.background});
+`
 
 const Timers = ({ timers }) => (
     <div className={styles.root}>
@@ -14,7 +18,11 @@ const Timers = ({ timers }) => (
             <List className={styles.grid}>
                 {timers.map(timer => (
                     <li key={timer._id}>
-                        <Timer duration={timer.duration} name={timer.name} />
+                        <Timer
+                            duration={timer.duration}
+                            name={timer.name}
+                            background={timer.backgroundUrl}
+                        />
                     </li>
                 ))}
             </List>
