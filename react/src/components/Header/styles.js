@@ -6,7 +6,7 @@ export default {
     root: css`
         display: flex;
         flex-direction: row;
-        background-color: ${Colors.grey.white};
+        background-color: ${Colors.grey.calc(98)};
     `,
     left: css`
         flex-grow: 1;
@@ -28,7 +28,7 @@ export default {
         background: linear-gradient(
             0,
             ${bgColor} 20%,
-            ${Colors.grey.calc(100)} 100%
+            ${Colors.grey.calc(98)} 100%
         );
     `,
     circle: css`
