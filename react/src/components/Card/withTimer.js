@@ -2,6 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Portal from '../Portal'
 import Line from '../Line'
+import MdClose from 'react-icons/lib/md/close'
+import MdPauseCircleFilled from 'react-icons/lib/md/pause-circle-filled'
+import MdPlayCircleFilled from 'react-icons/lib/md/play-circle-filled'
+
 import styles from './styles'
 
 const withTimer = Component => {
@@ -21,17 +25,20 @@ const withTimer = Component => {
                 this.stopTimer()
             } else {
                 this.setState({ counter: this.state.counter - 1 })
+                console.log(this.state.counter)
             }
         }
 
         startTimer = () => {
             this.setState({ active: true, showWindowPortal: true })
             this.cardId = setInterval(() => this.tick(), 1000)
+            console.log('Start timer!')
         }
 
         pauseTimer = () => {
             clearInterval(this.cardId)
             this.setState({ active: false })
+            console.log('Pause timer!')
         }
 
         stopTimer = () => {
@@ -41,6 +48,7 @@ const withTimer = Component => {
                 counter: this.props.duration * 60,
                 showWindowPortal: false
             })
+            console.log('Stop timer!')
         }
 
         toggleTimer = () => {
@@ -80,16 +88,24 @@ const withTimer = Component => {
                                     backgroundImage: `url(${background}?)`
                                 }}
                             >
-                                <div className={styles.buttonGroupCss}>
-                                    <button onClick={() => this.toggleTimer()}>
-                                        {this.state.active ? 'Pause' : 'Start'}
-                                    </button>
-                                    <button onClick={() => this.stopTimer()}>
-                                        Close
-                                    </button>
-                                </div>
+                                <button
+                                    className={styles.closeButton}
+                                    onClick={() => this.stopTimer()}
+                                >
+                                    Close <MdClose />
+                                </button>
                                 <p>
                                     {minutes}:{seconds}
+                                    <button
+                                        className={styles.toggleButton}
+                                        onClick={() => this.toggleTimer()}
+                                    >
+                                        {this.state.active ? (
+                                            <MdPauseCircleFilled />
+                                        ) : (
+                                            <MdPlayCircleFilled />
+                                        )}
+                                    </button>
                                 </p>
                                 <h3>{name}</h3>
                             </div>

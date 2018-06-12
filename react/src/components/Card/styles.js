@@ -23,26 +23,39 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        button {
-            width: 100%;
-            color: ${Colors.theme.primary};
-        }
-        ,
         p {
             color: rgba(255, 255, 255, 1);
             text-align: center;
             font-size: ${Layout.calcSpace(16)};
             align-self: center;
         }
-        ,
         h3 {
             ${Typography.h3} text-align: center;
             color: rgba(255, 255, 255, 0.8);
         }
+        button {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        button:focus {
+            outline: none;
+        }
     `,
-    buttonGroupCss: css({
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gridGap: '1rem'
-    })
+    toggleButton: css`
+        display: block;
+        margin: 0 auto;
+        svg {
+            text-align: center;
+            font-size: ${Layout.calcSpace(7)};
+        }
+    `,
+    closeButton: css`
+        width: 35%;
+        text-align: right;
+        align-self: flex-end;
+
+        svg {
+            vertical-align: -36% !important;
+            font-size: ${Layout.calcSpace(5)};
+        }
+    `
 }

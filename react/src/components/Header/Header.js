@@ -8,7 +8,7 @@ const Header = ({ home }) => (
     <header className={styles.root}>
         <aside className={styles.left}>
             <Circle className={styles.circle} filled />
-            <Circle className={styles.circle} outlined />
+            <Circle className={styles.circleLast} outlined />
         </aside>
         <section className={styles.center}>
             <h1 className={styles.title}>{home.heading}</h1>

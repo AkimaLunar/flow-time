@@ -59,4 +59,25 @@ injectGlobal`
     padding: 0;
   }
 
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    color: ${Colors.theme.primary};
+    cursor: pointer;
+    display: inline-block;
+    font-size: ${Layout.calcSpace(2)};
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: ${Typography.fontWeight.bold};
+    line-height: 1;
+    padding: ${Layout.calcSpace(2)} ${Layout.calcSpace(4)};
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
 `

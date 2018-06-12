@@ -23,6 +23,7 @@ class Portal extends React.PureComponent {
         copyStyles(document, this.externalWindow.document)
         this.externalWindow.onbeforeunload = this.onBeforeuUnload
         this.props.onOpen && this.props.onOpen()
+        console.log('Opening Portal…')
     }
 
     componentWillUnmount() {

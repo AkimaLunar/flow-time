@@ -10,6 +10,7 @@ export default {
     `,
     left: css`
         flex-grow: 1;
+        position: relative;
     `,
     center: css`
         padding-right: ${Layout.calcSpace(8)};
@@ -34,6 +35,13 @@ export default {
     circle: css`
         display: inline-block;
         margin: 1rem 0 0 1rem;
+        position: absolute;
+    `,
+    circleLast: css`
+        display: inline-block;
+        margin: 1rem 0 0 1rem;
+        position: absolute;
+        left: 1.75rem;
     `,
     title: css`
         ${Typography.title};

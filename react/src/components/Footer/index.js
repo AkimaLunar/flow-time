@@ -20,9 +20,29 @@ Footer.propTypes = {
 }
 
 export default styled(Footer)`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     background-color: ${props =>
-        props.backgroundColor ? props.backgroundColor : Colors.grey.medium};
+        props.backgroundColor ? props.backgroundColor : Colors.grey.calc(90)};
+    height: ${Layout.calcSpace(10)};
+
+    a {
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        margin-left: ${Layout.calcSpace(2)};
+        color: ${Colors.grey.calc(80)};
+        transition: all 0.2s ease;
+    }
+    a:hover {
+        color: ${Colors.theme.primary};
+    }
+
     footer {
         ${Layout.container};
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
     }
 `

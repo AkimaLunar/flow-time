@@ -1,16 +1,39 @@
 import React from 'react'
 import Main from '../Main'
 
+import styles from './styles'
+
 const About = () => (
-    <Main>
-        <h1>About</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            minima eum rerum maxime quod sequi obcaecati in iste nesciunt
-            recusandae tempore hic nostrum, expedita asperiores atque architecto
-            doloribus? Voluptates, possimus?
-        </p>
-    </Main>
+    <div className={styles.root}>
+        <Main>
+            <h1 className={styles.title}>About</h1>
+            <p>
+                FlowTime is built with&ensp;❤️&ensp;by{' '}
+                <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://riacarmin.com/"
+                >
+                    Ria Carmin
+                </a>. Code is on{' '}
+                <a
+                    href="https://github.com/AkimaLunar/flow-time"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>.
+            </p>
+            <h3>Starring:</h3>
+            <ul>
+                <li>React</li>
+                <li>Emotion.sh</li>
+                <li>Sanity CMS</li>
+                <li>Webpack</li>
+                <li>…and other lovely packages</li>
+            </ul>
+        </Main>
+    </div>
 )
 
 export default About
