@@ -31,6 +31,7 @@ export default {
             ${bgColor} 20%,
             ${Colors.grey.calc(98)} 100%
         );
+        border-top-left-radius: 10rem;
     `,
     circle: css`
         display: inline-block;

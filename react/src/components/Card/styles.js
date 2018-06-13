@@ -1,15 +1,10 @@
-import { css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { Layout } from 'Styles'
 import { Colors, Typography } from 'Styles'
 
 export default {
-    root: css`
-        border-radius: 1.2rem;
-        box-shadow: 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.35);
-        overflow: hidden;
-    `,
     line: css`
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.4);
         align-self: flex-end;
         width: 90%;
         margin: ${Layout.calcSpace(2)} 0 0 0;
@@ -30,7 +25,8 @@ export default {
             align-self: center;
         }
         h3 {
-            ${Typography.h3} text-align: center;
+            ${Typography.h3};
+            text-align: center;
             color: rgba(255, 255, 255, 0.8);
         }
         button {
@@ -59,3 +55,16 @@ export default {
         }
     `
 }
+
+const timerStateStyles = props =>
+    css`
+        filter: ${props.active ? 'grayscale(1)' : 'grayscale(0)'};
+
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.83, 0.17, 0.27, 0.67);
+    `
+
+export const DynamicTimer = styled('div')`
+    ${timerStateStyles};
+`

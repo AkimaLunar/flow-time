@@ -6,7 +6,7 @@ import MdClose from 'react-icons/lib/md/close'
 import MdPauseCircleFilled from 'react-icons/lib/md/pause-circle-filled'
 import MdPlayCircleFilled from 'react-icons/lib/md/play-circle-filled'
 
-import styles from './styles'
+import styles, { DynamicTimer } from './styles'
 
 const withTimer = Component => {
     class WithTimer extends React.Component {
@@ -68,14 +68,21 @@ const withTimer = Component => {
             const seconds = _s < 10 ? `0${_s}` : _s
             return (
                 <React.Fragment>
-                    <Component {...this.props}>
-                        <div className={className} onClick={this.toggleTimer}>
+                    <Component
+                        {...this.props}
+                        active={this.state.showWindowPortal}
+                    >
+                        <DynamicTimer
+                            className={className}
+                            active={this.state.showWindowPortal}
+                            onClick={this.toggleTimer}
+                        >
                             <Line className={styles.line} />
                             <p>
                                 {minutes}:{seconds}
                             </p>
                             <h3>{name}</h3>
-                        </div>
+                        </DynamicTimer>
                     </Component>
                     {this.state.showWindowPortal && (
                         <Portal

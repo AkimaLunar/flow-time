@@ -160,6 +160,14 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
+"@types/invariant@^2.2.29":
+  version "2.2.29"
+  resolved "https://registry.yarnpkg.com/@types/invariant/-/invariant-2.2.29.tgz#aa845204cd0a289f65d47e0de63a6a815e30cc66"
+
+"@types/node@^10.0.5":
+  version "10.3.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.3.2.tgz#3840ec6c12556fdda6e0e6d036df853101d732a4"
+
 "@webassemblyjs/ast@1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.4.3.tgz#3b3f6fced944d8660273347533e6d4d315b5934a"
@@ -3020,6 +3028,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framesync@^3.1.8, framesync@^3.1.9:
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/framesync/-/framesync-3.1.9.tgz#f65f815c711cf876f343b1f63da6e18b1384172f"
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -3378,6 +3390,10 @@ hash.js@^1.0.0, hash.js@^1.0.3:
 he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+
+hey-listen@^1.0.4, hey-listen@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.5.tgz#6d0a3a2f60177f65bc4404d571a00025bf5dc20e"
 
 history@^4.7.2:
   version "4.7.2"
@@ -5226,6 +5242,25 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
+popmotion-pose@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/popmotion-pose/-/popmotion-pose-2.0.3.tgz#5259769e58994f875d16313a0bfbccc0aa300c54"
+  dependencies:
+    popmotion "^8.2.4"
+    pose-core "^0.7.4"
+    style-value-types "^1.0.10"
+    tslib "^1.9.1"
+
+popmotion@^8.2.4:
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-8.2.4.tgz#161ab0c09b0d4d50ee7779574075181d0c600374"
+  dependencies:
+    framesync "^3.1.9"
+    hey-listen "^1.0.5"
+    style-value-types "^1.0.8"
+    stylefire "^2.0.2"
+    tslib "^1.9.1"
+
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5233,6 +5268,15 @@ portfinder@^1.0.9:
     async "^1.5.2"
     debug "^2.2.0"
     mkdirp "0.5.x"
+
+pose-core@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/pose-core/-/pose-core-0.7.4.tgz#21d64b6efe5eb7e0d1c2e7a111d0836ea00cdea5"
+  dependencies:
+    "@types/invariant" "^2.2.29"
+    "@types/node" "^10.0.5"
+    hey-listen "^1.0.5"
+    tslib "^1.9.1"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -5781,6 +5825,14 @@ react-loadable@^5.4.0:
   resolved "https://registry.yarnpkg.com/react-loadable/-/react-loadable-5.4.0.tgz#3b6b7d51121a7868fd155be848a36e02084742c9"
   dependencies:
     prop-types "^15.5.0"
+
+react-pose@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-2.1.2.tgz#d3ad0cb2f7a56edef34d4626cc5e78ceefd34663"
+  dependencies:
+    hey-listen "^1.0.5"
+    popmotion-pose "^2.0.3"
+    tslib "^1.9.1"
 
 react-prop-types@^0.4.0:
   version "0.4.0"
@@ -6674,6 +6726,18 @@ style-loader@^0.21.0:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
+style-value-types@^1.0.10, style-value-types@^1.0.6, style-value-types@^1.0.8:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-1.0.10.tgz#e46a11922f7b9efe265fb22bfd3b5429611bc016"
+
+stylefire@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/stylefire/-/stylefire-2.0.2.tgz#2c0c5d2749a22f71d3c5ae95889dcee1b3597599"
+  dependencies:
+    framesync "^3.1.8"
+    hey-listen "^1.0.4"
+    style-value-types "^1.0.6"
+
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
@@ -6850,6 +6914,10 @@ trim@0.0.1:
 tslib@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.1.tgz#a5d1f0532a49221c87755cfcc89ca37197242ba7"
+
+tslib@^1.9.1:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.2.tgz#8be0cc9a1f6dc7727c38deb16c2ebd1a2892988e"
 
 tty-browserify@0.0.0:
   version "0.0.0"
