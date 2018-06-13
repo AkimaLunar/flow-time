@@ -1,7 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import withTimer from './withTimer'
-// import Posed from './posed'
 import styled, { css } from 'react-emotion'
 
 const cardStateStyles = props =>

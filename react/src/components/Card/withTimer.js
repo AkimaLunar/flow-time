@@ -21,11 +21,12 @@ const withTimer = Component => {
         }
 
         tick = () => {
+            console.log(`${this.state.counter} - 1`)
             if (this.state.counter <= 0) {
                 this.stopTimer()
             } else {
                 this.setState({ counter: this.state.counter - 1 })
-                console.log(this.state.counter)
+                console.log(`tick() => `, this.state.counter)
             }
         }
 
