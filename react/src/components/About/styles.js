@@ -3,6 +3,7 @@ import { Layout, Typography, Colors } from 'Styles'
 
 export default {
     root: css`
+        height: 92%;
         padding-top: ${Layout.calcSpace(20)};
         padding-bottom: ${Layout.calcSpace(10)};
         background: ${Colors.grey.light};

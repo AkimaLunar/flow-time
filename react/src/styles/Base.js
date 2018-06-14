@@ -10,12 +10,17 @@ injectGlobal`
   
   html,
   body {
+    height: 100%;
     background-color: ${Colors.grey.light};
     margin: 0;
     padding: 0;
     color: ${Colors.grey.dark};
     font-family: ${Typography.font.base};
     font-size: ${Layout.rootFontSize};
+  }
+
+  .root {
+    height: 100%;
   }
 
   h1 {

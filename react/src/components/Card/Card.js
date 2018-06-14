@@ -20,6 +20,7 @@ const cardStateStyles = props =>
         transition-property: all;
         transition-duration: 0.5s;
         transition-timing-function: cubic-bezier(0.83, 0.17, 0.27, 0.67);
+        cursor: pointer;
     `
 
 const Card = styled('div')`

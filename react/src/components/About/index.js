@@ -1,6 +1,5 @@
 import React from 'react'
 import Main from '../Main'
-import Card from '../Card'
 
 import styles from './styles'
 

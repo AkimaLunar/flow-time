@@ -9,6 +9,12 @@ export default {
         width: 90%;
         margin: ${Layout.calcSpace(2)} 0 0 0;
     `,
+    lineDark: css`
+        color: ${Colors.grey.calc(80)};
+        align-self: flex-end;
+        width: 90%;
+        margin: ${Layout.calcSpace(2)} 0 0 0;
+    `,
     portal: css`
         background-color: ${Colors.theme.secondary};
         background-repeat: no-repeat;
@@ -53,13 +59,24 @@ export default {
             vertical-align: -36% !important;
             font-size: ${Layout.calcSpace(5)};
         }
+    `,
+    buttonGroup: css`
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: ${Layout.calcSpace(6)};
+    `,
+    addText: css`
+        padding: 0 ${Layout.calcSpace(4)};
+        color: ${Colors.theme.primary};
+        font-size: ${Layout.calcSpace(4)};
+        font-family: ${Typography.font.title};
     `
 }
 
 const timerStateStyles = props =>
     css`
         filter: ${props.active ? 'grayscale(1)' : 'grayscale(0)'};
-
         transition-property: all;
         transition-duration: 0.5s;
         transition-timing-function: cubic-bezier(0.83, 0.17, 0.27, 0.67);

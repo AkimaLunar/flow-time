@@ -27,7 +27,13 @@ const About = Loadable({
 About.preload()
 
 class Shell extends React.PureComponent {
-    state = { site: {}, home: {}, timers: [] }
+    updateTimers = timer => {
+        this.setState({
+            timers: [...this.state.timers, timer]
+        })
+    }
+
+    state = { site: {}, home: {}, timers: [], updateTimers: this.updateTimers }
     componentDidMount() {
         getAppData()
             .then(appData => {
@@ -42,6 +48,7 @@ class Shell extends React.PureComponent {
             })
             .catch(err => console.log(err))
     }
+
     render() {
         return (
             <Provider value={this.state}>

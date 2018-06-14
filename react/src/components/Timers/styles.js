@@ -28,5 +28,24 @@ export default {
             color: rgba(255, 255, 255, 0.4);
             text-align: center;
         }
+    `,
+    add: css`
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        height: ${Layout.calcSpace(40)};
+        justify-content: space-between;
+        background-color: ${Colors.grey.calc(98)};
+
+        input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            height: ${Layout.calcSpace(16)};
+            font-size: ${Layout.calcSpace(8)};
+            color: ${Colors.grey.medium};
+            text-align: center;
+            padding-left: 1rem;
+        }
     `
 }

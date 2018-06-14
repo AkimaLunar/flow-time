@@ -20,9 +20,7 @@ Footer.propTypes = {
 }
 
 export default styled(Footer)`
-    position: absolute;
     width: 100%;
-    bottom: 0;
     background-color: ${props =>
         props.backgroundColor ? props.backgroundColor : Colors.grey.calc(90)};
     height: ${Layout.calcSpace(10)};

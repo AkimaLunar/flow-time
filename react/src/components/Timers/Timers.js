@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import List from '../List'
 import Card from '../Card'
 import withTimer from '../Card/withTimer'
+import withBlank from '../Card/withBlank'
 import styles from './styles'
 import styled from 'react-emotion'
 
@@ -12,7 +13,11 @@ const Timer = styled(withTimer(Card))`
     background-image: url(${props => props.background});
 `
 
-const Timers = ({ timers }) => (
+const NewTimer = styled(withBlank(Card))`
+    ${styles.add};
+`
+
+const Timers = ({ timers, addTimer }) => (
     <div className={styles.root}>
         <Section>
             <List className={styles.grid}>
@@ -25,12 +30,16 @@ const Timers = ({ timers }) => (
                         />
                     </li>
                 ))}
+                <li>
+                    <NewTimer addTimer={addTimer} />
+                </li>
             </List>
         </Section>
     </div>
 )
 
 Timers.propTypes = {
+    addTimer: PropTypes.func,
     timers: PropTypes.arrayOf(
         PropTypes.shape({
             _id: PropTypes.string,

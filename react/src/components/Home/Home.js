@@ -4,12 +4,15 @@ import Header from '../Header'
 import Timers from '../Timers'
 import { withApp } from '../Shell/context'
 
-const Home = ({ timers, home }) => (
-    <React.Fragment>
-        <Header home={home} />
-        <Timers timers={timers} />
-    </React.Fragment>
-)
+const Home = props => {
+    const { timers, home, updateTimers } = props
+    return (
+        <React.Fragment>
+            <Header home={home} />
+            <Timers timers={timers} addTimer={updateTimers} />
+        </React.Fragment>
+    )
+}
 
 Home.propTypes = {
     site: PropTypes.shape({
@@ -29,7 +32,8 @@ Home.propTypes = {
             imageCreditUrl: PropTypes.string,
             name: PropTypes.string
         })
-    )
+    ),
+    updateTimers: PropTypes.func
 }
 
 export default withApp(Home)

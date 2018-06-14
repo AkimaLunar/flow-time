@@ -13,35 +13,30 @@ const withTimer = Component => {
         cardId = null
         state = { counter: 0, showWindowPortal: false }
 
-        static getDerivedStateFromProps(nextProps) {
-            if (nextProps.hasOwnProperty('duration')) {
-                return { counter: nextProps.duration * 60 }
+        componentDidMount() {
+            if (this.props.hasOwnProperty('duration')) {
+                this.setState({ counter: this.props.duration * 60 })
             }
-            return null
         }
 
         tick = () => {
             let counter = this.state.counter
-            console.log(`${counter} - 1`)
             if (counter <= 0) {
                 this.stopTimer()
             } else {
                 counter--
                 this.setState({ counter })
-                console.log(`tick() => `, counter, this.state.counter)
             }
         }
 
         startTimer = () => {
             this.setState({ active: true, showWindowPortal: true })
             this.cardId = setInterval(() => this.tick(), 1000)
-            console.log('Start timer!')
         }
 
         pauseTimer = () => {
             clearInterval(this.cardId)
             this.setState({ active: false })
-            console.log('Pause timer!')
         }
 
         stopTimer = () => {
@@ -51,7 +46,6 @@ const withTimer = Component => {
                 counter: this.props.duration * 60,
                 showWindowPortal: false
             })
-            console.log('Stop timer!')
         }
 
         toggleTimer = () => {
