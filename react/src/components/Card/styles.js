@@ -71,12 +71,14 @@ export default {
         color: ${Colors.theme.primary};
         font-size: ${Layout.calcSpace(4)};
         font-family: ${Typography.font.title};
+        cursor: poiter;
     `
 }
 
 const timerStateStyles = props =>
     css`
         filter: ${props.active ? 'grayscale(1)' : 'grayscale(0)'};
+        cursor: ${props.active ? 'default' : 'pointer'};
         transition-property: all;
         transition-duration: 0.5s;
         transition-timing-function: cubic-bezier(0.83, 0.17, 0.27, 0.67);

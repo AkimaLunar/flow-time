@@ -17,26 +17,36 @@ const NewTimer = styled(withBlank(Card))`
     ${styles.add};
 `
 
-const Timers = ({ timers, addTimer }) => (
-    <div className={styles.root}>
-        <Section>
-            <List className={styles.grid}>
-                {timers.map(timer => (
-                    <li key={timer._id}>
-                        <Timer
-                            duration={timer.duration}
-                            name={timer.name}
-                            background={timer.backgroundUrl}
-                        />
-                    </li>
-                ))}
-                <li>
-                    <NewTimer addTimer={addTimer} />
-                </li>
-            </List>
-        </Section>
-    </div>
-)
+class Timers extends React.Component {
+    state = { active: false }
+    setActive = active => this.setState({ active })
+    render() {
+        const { active } = this.state
+        const { timers, addTimer } = this.props
+        return (
+            <div className={styles.root}>
+                <Section>
+                    <List className={styles.grid}>
+                        {timers.map(timer => (
+                            <li key={timer._id}>
+                                <Timer
+                                    duration={timer.duration}
+                                    name={timer.name}
+                                    background={timer.backgroundUrl}
+                                    active={active}
+                                    setActive={this.setActive}
+                                />
+                            </li>
+                        ))}
+                        <li>
+                            <NewTimer addTimer={addTimer} />
+                        </li>
+                    </List>
+                </Section>
+            </div>
+        )
+    }
+}
 
 Timers.propTypes = {
     addTimer: PropTypes.func,

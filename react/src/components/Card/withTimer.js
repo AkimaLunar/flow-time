@@ -31,6 +31,7 @@ const withTimer = Component => {
 
         startTimer = () => {
             this.setState({ active: true, showWindowPortal: true })
+            this.props.setActive && this.props.setActive(true)
             this.cardId = setInterval(() => this.tick(), 1000)
         }
 
@@ -41,6 +42,7 @@ const withTimer = Component => {
 
         stopTimer = () => {
             clearInterval(this.cardId)
+            this.props.setActive && this.props.setActive(false)
             this.setState({
                 active: false,
                 counter: this.props.duration * 60,
@@ -49,6 +51,9 @@ const withTimer = Component => {
         }
 
         toggleTimer = () => {
+            if (this.props.active) {
+                return
+            }
             if (this.state.active) {
                 this.pauseTimer()
             } else {
@@ -65,13 +70,10 @@ const withTimer = Component => {
             const seconds = _s < 10 ? `0${_s}` : _s
             return (
                 <React.Fragment>
-                    <Component
-                        {...this.props}
-                        active={this.state.showWindowPortal}
-                    >
+                    <Component {...this.props} active={this.props.active}>
                         <DynamicTimer
                             className={className}
-                            active={this.state.showWindowPortal}
+                            active={this.props.active}
                             onClick={this.toggleTimer}
                         >
                             <Line className={styles.line} />
@@ -124,10 +126,12 @@ const withTimer = Component => {
         Component.name})`
 
     WithTimer.propTypes = {
+        active: PropTypes.bool,
+        background: PropTypes.string,
         className: PropTypes.string,
         duration: PropTypes.number,
         name: PropTypes.string,
-        background: PropTypes.string
+        setActive: PropTypes.func
     }
 
     return WithTimer
