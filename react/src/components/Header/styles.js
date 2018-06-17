@@ -2,6 +2,7 @@ import { css } from 'react-emotion'
 import { Colors, Layout, Typography } from 'Styles'
 
 const bgColor = Colors.grey.calc(94)
+console.log(Layout.mediaqueries)
 export default {
     root: css`
         display: flex;
@@ -22,6 +23,14 @@ export default {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: ${Layout.calcSpace(4)};
         align-items: end;
+        ${Layout.padding};
+        ${Layout.breakpoints({
+        gridTemplateColumns: [
+            `repeat(1, 1fr)`,
+            `repeat(1, 1fr)`,
+            `repeat(2, 1fr)`
+        ]
+    })};
     `,
     right: css`
         flex-grow: 1;

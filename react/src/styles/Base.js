@@ -11,6 +11,7 @@ injectGlobal`
   html,
   body {
     height: 100%;
+    position: realtive;
     background-color: ${Colors.grey.light};
     margin: 0;
     padding: 0;
@@ -20,7 +21,11 @@ injectGlobal`
   }
 
   .root {
-    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: ${Layout.calcSpace(10)};
   }
 
   h1 {
