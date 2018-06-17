@@ -63,6 +63,9 @@ export default {
         ${Typography.paragraph};
         margin-bottom: 0;
         color: ${Colors.grey.calc(72)};
+        ${Layout.breakpoints({
+        paddingRight: [0, 0, Layout.calcSpace(8)]
+    })};
     `,
     corner: css`
         position: absolute;
