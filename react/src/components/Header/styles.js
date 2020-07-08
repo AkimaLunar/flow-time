@@ -2,7 +2,6 @@ import { css } from 'react-emotion'
 import { Colors, Layout, Typography } from 'Styles'
 
 const bgColor = Colors.grey.calc(94)
-console.log(Layout.mediaqueries)
 export default {
     root: css`
         display: flex;

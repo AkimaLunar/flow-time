@@ -61,8 +61,6 @@ const withTimer = Component => {
             }
         }
 
-        handleClose = () => this.stopTimer()
-
         render() {
             const { className, name, background } = this.props
             const minutes = Math.floor(this.state.counter / 60)
@@ -85,10 +83,12 @@ const withTimer = Component => {
                     </Component>
                     {this.state.showWindowPortal && (
                         <Portal
-                            onClose={this.handleClose}
+                            onClose={this.stopTimer}
                             name={`Timer: ${name}`}
                         >
                             <div
+                                // 👇 Fixes React listening to events
+                                onClick={() => {console.log('Bubbling event...')}}
                                 className={styles.portal}
                                 style={{
                                     backgroundImage: `url(${background}?)`
@@ -96,7 +96,7 @@ const withTimer = Component => {
                             >
                                 <button
                                     className={styles.closeButton}
-                                    onClick={() => this.stopTimer()}
+                                    onClick={this.stopTimer}
                                 >
                                     Close <MdClose />
                                 </button>
@@ -104,7 +104,7 @@ const withTimer = Component => {
                                     {minutes}:{seconds}
                                     <button
                                         className={styles.toggleButton}
-                                        onClick={() => this.toggleTimer()}
+                                        onClick={this.state.active ? this.pauseTimer : this.startTimer}
                                     >
                                         {this.state.active ? (
                                             <MdPauseCircleFilled />
